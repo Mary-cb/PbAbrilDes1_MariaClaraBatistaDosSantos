@@ -6,6 +6,7 @@ public class Adulto extends Pessoa{
         super();
     }
 
-    
-
+    public Adulto(String nome, Integer idade){
+        super(nome, idade);
+    }
 }
