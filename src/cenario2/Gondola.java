@@ -31,5 +31,25 @@ public class Gondola {
         this.assento2 = assento2;
     }
 
+    public void embarcar(Pessoa pessoa) {
+        if (this.assento1 == null) {
+            this.assento1 = pessoa;
+        } else if (this.assento2 == null) {
+            this.assento2 = pessoa;
+        } else {
+            System.out.println("Gôndola cheia.");
+        }
+    }
+
+    public void printOcupantes() {
+        if (assento1 != null) {
+            System.out.print(assento1.getNome());
+            if (assento2 != null) {
+                System.out.print(" e " + assento2.getNome());
+            }
+        }
+        System.out.println();
+    }
+
 }
 
