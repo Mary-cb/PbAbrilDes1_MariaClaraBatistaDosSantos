@@ -50,16 +50,12 @@ public class Pessoa implements List<Pessoa> {
         this.filho.add(filho);
     }
 
-    public void filhoDe(Pessoa filho){
-
-    }
-
     public void addConjuge(Pessoa conjuge) {
         this.conjuge = conjuge;
         conjuge.conjuge = this;
     }
 
-    public void printFamilyTree(){
+    public void imprimirArvore(){
         System.out.print(this.nome);
         if (this.conjuge != null) {
             System.out.print(" -- Casado(a) com: " + this.conjuge.nome);
@@ -71,7 +67,7 @@ public class Pessoa implements List<Pessoa> {
         if (!this.filho.isEmpty()) {
             System.out.println(" -- Filhos:");
             for (Pessoa filho : this.filho) {
-                filho.printFamilyTree();
+                filho.imprimirArvore();
             }
         }
 

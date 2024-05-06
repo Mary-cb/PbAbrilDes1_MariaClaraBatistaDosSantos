@@ -49,7 +49,7 @@ public class Programa {
         sigrid.addFilho(thomas);
         sigrid.addFilho(claudia);
 
-        lily.printFamilyTree();
+        lily.imprimirArvore();
 
     }
 }
