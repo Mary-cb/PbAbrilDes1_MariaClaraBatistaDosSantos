@@ -24,25 +24,34 @@ public class RodaGigante {
         this.gondolas = gondolas;
     }
 
-    public void embarque(int numero, Pessoa... pessoas) {
-        if (numero >= 1 && numero <= this.gondolas.size()) {
-            Gondola gondola = this.gondolas.get(numero - 1);
-            for (Pessoa pessoa : pessoas) {
-                gondola.embarcar(pessoa);
-            }
-        } else {
-            System.out.println("Gondola numero " + numero + " não encontrada.");
+    public void embarque(Integer numero, Pessoa assento1, Pessoa assento2) {
+        for (int i = 1; i <= numero; i++) {
+            Gondola gondola = new Gondola(numero, assento1, assento2);
+            gondolas.add(gondola);
         }
     }
-
 
     public void status() {
-        System.out.println("Roda gigante:");
-        for (int i = 0; i < this.gondolas.size(); i++) {
-            System.out.print("Gondola " + (i + 1) + ": ");
-            this.gondolas.get(i).printOcupantes();
+        System.out.println("Roda Gigante:");
+        try {
+            for (int num = 1; num <= gondolas.size(); num++) {
+                Gondola gondola = new Gondola();
+                gondola.setNumero(num);
+                if (gondola.getAssento1() == null && gondola.getAssento2() == null) {
+                    System.out.println("*" + gondola.getNumero() + "(Gôndola vazia)");
+                } else if (gondola.getAssento1() != null && gondola.getAssento2() != null) {
+                    System.out.println("*" + gondola.getNumero() + "(" + gondola.getAssento1().getNome() + " - " + gondola.getAssento2().getNome() + ")");
+                } else if (gondola.getAssento1() == null) {
+                    System.out.println("*" + gondola.getNumero() + "(" + gondola.getAssento2().getNome() + ")");
+                } else if (gondola.getAssento2() == null) {
+                    System.out.println("*" + gondola.getNumero() + "(" + gondola.getAssento1().getNome() + ")");
+                }
+            }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
         }
     }
+
 }
 
 

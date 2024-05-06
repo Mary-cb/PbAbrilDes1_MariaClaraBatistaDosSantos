@@ -13,9 +13,8 @@ public class Programa {
         Crianca henrique = new Crianca("Henrique", 10);
 
         rodaGigante.embarque(2, joao, paulo);
-        rodaGigante.embarque(3, maria);
-        rodaGigante.embarque(13, pedro);
-        rodaGigante.embarque(16, henrique);
+        rodaGigante.embarque(3, maria, null);
+        rodaGigante.embarque(13, pedro, null);
         rodaGigante.status();
 
     }
